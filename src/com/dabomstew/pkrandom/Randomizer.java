@@ -181,6 +181,9 @@ public class Randomizer {
         } else if (settings.getEvolutionsMod() == Settings.EvolutionsMod.RANDOM_EVERY_LEVEL) {
             romHandler.randomizeEvolutionsEveryLevel(settings);
             evolutionsChanged = true;
+        } else if (settings.getEvolutionsMod() == Settings.EvolutionsMod.STONE_EVO_ONLY) {
+            romHandler.randomizeEvolutionsByStone(settings);
+            evolutionsChanged = true;
         }
 
         if (evolutionsChanged) {
