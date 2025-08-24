@@ -745,6 +745,17 @@
                       <toolTipText resource-bundle="com/dabomstew/pkrandom/newgui/Bundle" key="GUI.peRandomEveryLevelRadioButton.toolTipText"/>
                     </properties>
                   </component>
+                  <component id="4cd2b" class="javax.swing.JRadioButton" binding="peStoneEvoOnlyRadioButton">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <gridbag weightx="0.0" weighty="0.0"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text resource-bundle="com/dabomstew/pkrandom/newgui/Bundle" key="GUI.peStoneEvoOnlyRadioButton.text"/>
+                      <toolTipText resource-bundle="com/dabomstew/pkrandom/newgui/Bundle" key="GUI.peStoneEvoOnlyRadioButton.toolTipText"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <vspacer id="44843">
@@ -3826,6 +3837,7 @@
       <member id="9dc25"/>
       <member id="577d"/>
       <member id="7fc31"/>
+      <member id="4cd2b"/>
     </group>
     <group name="pokemonAbilityButtonGroup">
       <member id="fa40d"/>

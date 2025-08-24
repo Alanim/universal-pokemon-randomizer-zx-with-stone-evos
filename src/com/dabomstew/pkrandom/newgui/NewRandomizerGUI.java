@@ -300,6 +300,7 @@ public class NewRandomizerGUI {
     private JCheckBox paEnsureTwoAbilitiesCheckbox;
     private JCheckBox miscUpdateRotomFormeTypingCheckBox;
     private JCheckBox miscDisableLowHPMusicCheckBox;
+    private JRadioButton peStoneEvoOnlyRadioButton;
 
     private static JFrame frame;
 
@@ -422,6 +423,7 @@ public class NewRandomizerGUI {
         peUnchangedRadioButton.addActionListener(e -> enableOrDisableSubControls());
         peRandomRadioButton.addActionListener(e -> enableOrDisableSubControls());
         peRandomEveryLevelRadioButton.addActionListener(e -> enableOrDisableSubControls());
+        peStoneEvoOnlyRadioButton.addActionListener(e -> enableOrDisableSubControls());
         peAllowAltFormesCheckBox.addActionListener(e -> enableOrDisableSubControls());
         spUnchangedRadioButton.addActionListener(e -> enableOrDisableSubControls());
         spCustomRadioButton.addActionListener(e -> enableOrDisableSubControls());
@@ -1514,6 +1516,7 @@ public class NewRandomizerGUI {
         peUnchangedRadioButton.setSelected(settings.getEvolutionsMod() == Settings.EvolutionsMod.UNCHANGED);
         peRandomRadioButton.setSelected(settings.getEvolutionsMod() == Settings.EvolutionsMod.RANDOM);
         peRandomEveryLevelRadioButton.setSelected(settings.getEvolutionsMod() == Settings.EvolutionsMod.RANDOM_EVERY_LEVEL);
+        peStoneEvoOnlyRadioButton.setSelected(settings.getEvolutionsMod() == Settings.EvolutionsMod.STONE_EVO_ONLY);
         peSimilarStrengthCheckBox.setSelected(settings.isEvosSimilarStrength());
         peSameTypingCheckBox.setSelected(settings.isEvosSameTyping());
         peLimitEvolutionsToThreeCheckBox.setSelected(settings.isEvosMaxThreeStages());
@@ -1752,7 +1755,7 @@ public class NewRandomizerGUI {
                 spComboBox2.getSelectedIndex() + 1, spComboBox3.getSelectedIndex() + 1 };
         settings.setCustomStarters(customStarters);
 
-        settings.setEvolutionsMod(peUnchangedRadioButton.isSelected(), peRandomRadioButton.isSelected(), peRandomEveryLevelRadioButton.isSelected());
+        settings.setEvolutionsMod(peUnchangedRadioButton.isSelected(), peRandomRadioButton.isSelected(), peRandomEveryLevelRadioButton.isSelected(), peStoneEvoOnlyRadioButton.isSelected());
         settings.setEvosSimilarStrength(peSimilarStrengthCheckBox.isSelected());
         settings.setEvosSameTyping(peSameTypingCheckBox.isSelected());
         settings.setEvosMaxThreeStages(peLimitEvolutionsToThreeCheckBox.isSelected());
@@ -2122,6 +2125,9 @@ public class NewRandomizerGUI {
         peRandomEveryLevelRadioButton.setVisible(true);
         peRandomEveryLevelRadioButton.setEnabled(false);
         peRandomEveryLevelRadioButton.setSelected(false);
+        peStoneEvoOnlyRadioButton.setVisible(true);
+        peStoneEvoOnlyRadioButton.setEnabled(false);
+        peStoneEvoOnlyRadioButton.setSelected(false);
         peSimilarStrengthCheckBox.setVisible(true);
         peSimilarStrengthCheckBox.setEnabled(false);
         peSimilarStrengthCheckBox.setSelected(false);
@@ -2742,6 +2748,8 @@ public class NewRandomizerGUI {
             peRandomRadioButton.setEnabled(true);
             peRandomEveryLevelRadioButton.setVisible(pokemonGeneration >= 3);
             peRandomEveryLevelRadioButton.setEnabled(pokemonGeneration >= 3);
+            peStoneEvoOnlyRadioButton.setVisible(pokemonGeneration == 3);
+            peStoneEvoOnlyRadioButton.setEnabled(pokemonGeneration == 3);
             peChangeImpossibleEvosCheckBox.setEnabled(true);
             peMakeEvolutionsEasierCheckBox.setEnabled(true);
             peRemoveTimeBasedEvolutionsCheckBox.setEnabled(true);
@@ -3054,10 +3062,10 @@ public class NewRandomizerGUI {
             limitPokemonButton.setEnabled(false);
         }
 
-        boolean followEvolutionControlsEnabled = !peRandomEveryLevelRadioButton.isSelected();
-        boolean followMegaEvolutionControlsEnabled = !(peRandomEveryLevelRadioButton.isSelected() && !noIrregularAltFormesCheckBox.isSelected() && peAllowAltFormesCheckBox.isSelected());
+        boolean followEvolutionControlsEnabled = !(peRandomEveryLevelRadioButton.isSelected() || peStoneEvoOnlyRadioButton.isSelected());
+        boolean followMegaEvolutionControlsEnabled = !((peRandomEveryLevelRadioButton.isSelected() || peStoneEvoOnlyRadioButton.isSelected()) && !noIrregularAltFormesCheckBox.isSelected() && peAllowAltFormesCheckBox.isSelected());
 
-        if (peRandomEveryLevelRadioButton.isSelected()) {
+        if (peRandomEveryLevelRadioButton.isSelected() || peStoneEvoOnlyRadioButton.isSelected()) {
             // If Evolve Every Level is enabled, unselect all "Follow Evolutions" controls
             pbsFollowEvolutionsCheckBox.setSelected(false);
             ptRandomFollowEvolutionsRadioButton.setEnabled(false);
@@ -3196,7 +3204,7 @@ public class NewRandomizerGUI {
             peLimitEvolutionsToThreeCheckBox.setEnabled(true);
             peForceChangeCheckBox.setEnabled(true);
             peAllowAltFormesCheckBox.setEnabled(true);
-        } else if (peRandomEveryLevelRadioButton.isSelected()) {
+        } else if (peRandomEveryLevelRadioButton.isSelected() || peStoneEvoOnlyRadioButton.isSelected()) {
             peSimilarStrengthCheckBox.setEnabled(false);
             peSimilarStrengthCheckBox.setSelected(false);
             peSameTypingCheckBox.setEnabled(true);
