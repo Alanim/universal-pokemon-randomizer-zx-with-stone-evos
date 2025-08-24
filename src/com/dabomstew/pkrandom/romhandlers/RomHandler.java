@@ -587,6 +587,8 @@ public interface RomHandler {
 
     void randomizeEvolutionsEveryLevel(Settings settings);
 
+    void randomizeEvolutionsByStone(Settings settings);
+
     // In the earlier games, alt formes use the same evolutions as the base forme.
     // In later games, this was changed so that alt formes can have unique evolutions
     // compared to the base forme.

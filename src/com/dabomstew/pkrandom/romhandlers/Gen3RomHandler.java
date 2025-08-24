@@ -4471,4 +4471,14 @@ public class Gen3RomHandler extends AbstractGBRomHandler {
         }
         return items;
     }
+
+    @Override
+    public void randomizeEvolutionsByStone(Settings settings) {
+        super.randomizeEvolutionsByStone(settings);
+
+        if (romEntry.getValue("OakPokeballs") != 0) {
+            writeWord(romEntry.getValue("OakPokeballs"), Gen3Items.moonStone);
+            writeWord(romEntry.getValue("OakPokeballs") + 2, 15);
+        }
+    }
 }
