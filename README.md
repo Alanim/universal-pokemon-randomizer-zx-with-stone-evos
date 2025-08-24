@@ -8,13 +8,13 @@ Based on the Universal Pokemon Randomizer by Dabomstew
 
 This fork was made to solely implement an idea for a moon stone only evo mode. It will only work with FireRed/LeafGreen, no other games are currently supported. Comrade_dik_dik did 99.99% of the work for this fork.
 
-Have a look at the [release page](https://github.com/Alanim/universal-pokemon-randomizer-zx/releases) for changelogs and downloads.
+Have a look at the [release page](https://github.com/Alanim/universal-pokemon-randomizer-zx-with-stone-evos/releases) for changelogs and downloads.
 
 # Contributing
 
 If you want to contribute something to the codebase, we'd recommend creating an issue for it first (using the`Contribution Idea` template). This way, we can discuss whether or not it's a good fit for the randomizer before you put in the work to implement it. This is just to save you time in the event that we don't think it's something we want to accept.
 
-See [the Wiki Page](https://github.com/Alanim/universal-pokemon-randomizer-zx/wiki/Building-Universal-Pokemon-Randomizer-ZX) for setting up to build/test locally.
+See [the Wiki Page](https://github.com/Alanim/universal-pokemon-randomizer-zx-with-stone-evos/wiki/Building-Universal-Pokemon-Randomizer-ZX) for setting up to build/test locally.
 
 ### What is a good fit for the randomizer?
 
@@ -32,4 +32,5 @@ If you encounter something that seems to be a bug, submit an issue using the `Bu
 
 # Other problems
 
-If you have problems using the randomizer, it could be because of some problem with Java or your operating system. **If you have problems with starting the randomizer specifically, [read this page first before creating an issue.](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/wiki/About-Java)** If that page does not solve your problem, submit an issue using the `Need Help` issue template.
+If you have problems using the randomizer, it could be because of some problem with Java or your operating system. **If you have problems with starting the randomizer specifically, [read this page first before creating an issue.](https://github.com/Alanim/universal-pokemon-randomizer-zx-with-stone-evos/wiki/About-Java)** If that page does not solve your problem, submit an issue using the `Need Help` issue template.
+
