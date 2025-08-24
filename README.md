@@ -1,20 +1,20 @@
 Universal Pokemon Randomizer ZX by Ajarmar
 
-With significant contributions from darkeye, cleartonic
+With significant contributions from darkeye, cleartonic, comrade_dik_dik
 
 Based on the Universal Pokemon Randomizer by Dabomstew
 
 # Info
 
-This fork was originally made to make some minor tweaks and fixes, but became a bit more ambitious since 2020. There are several new features and supported games (including 3DS games) compared to the original Universal Pokemon Randomizer.
+This fork was made to solely implement an idea for a moon stone only evo mode. It will only work with FireRed/LeafGreen, no other games are currently supported. Comrade_dik_dik did 99.99% of the work for this fork.
 
-Have a look at the [release page](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases) for changelogs and downloads.
+Have a look at the [release page](https://github.com/Alanim/universal-pokemon-randomizer-zx/releases) for changelogs and downloads.
 
 # Contributing
 
 If you want to contribute something to the codebase, we'd recommend creating an issue for it first (using the`Contribution Idea` template). This way, we can discuss whether or not it's a good fit for the randomizer before you put in the work to implement it. This is just to save you time in the event that we don't think it's something we want to accept.
 
-See [the Wiki Page](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/wiki/Building-Universal-Pokemon-Randomizer-ZX) for setting up to build/test locally.
+See [the Wiki Page](https://github.com/Alanim/universal-pokemon-randomizer-zx/wiki/Building-Universal-Pokemon-Randomizer-ZX) for setting up to build/test locally.
 
 ### What is a good fit for the randomizer?
 
