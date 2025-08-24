@@ -124,7 +124,7 @@ public class Settings {
 
     // Evolutions
     public enum EvolutionsMod {
-        UNCHANGED, RANDOM, RANDOM_EVERY_LEVEL
+        UNCHANGED, RANDOM, RANDOM_EVERY_LEVEL, STONE_EVO_ONLY
     }
 
     private EvolutionsMod evolutionsMod = EvolutionsMod.UNCHANGED;
@@ -473,9 +473,14 @@ public class Settings {
                 randomizeMoveCategory, correctStaticMusic));
 
         // 26 evolutions
-        out.write(makeByteSelected(evolutionsMod == EvolutionsMod.UNCHANGED, evolutionsMod == EvolutionsMod.RANDOM,
+        // This looks a bit wild, but it's to maintain backwards compatibility.
+        int evolutionsModBits = evolutionsMod == EvolutionsMod.UNCHANGED ? 0b001 :
+            evolutionsMod == EvolutionsMod.RANDOM ? 0b010 :
+            evolutionsMod == EvolutionsMod.RANDOM_EVERY_LEVEL ? 0b100 :
+            /* EvolutionsMod.STONE_EVO_ONLY */ 0b101;
+        out.write(makeByteSelected((evolutionsModBits & 0b001) != 0, (evolutionsModBits & 0b010) != 0,
                 evosSimilarStrength, evosSameTyping, evosMaxThreeStages, evosForceChange, evosAllowAltFormes,
-                evolutionsMod == EvolutionsMod.RANDOM_EVERY_LEVEL));
+                (evolutionsModBits & 0b100) != 0));
         
         // 27 pokemon trainer misc
         out.write(makeByteSelected(trainersUsePokemonOfSimilarStrength, 
@@ -771,10 +776,15 @@ public class Settings {
         settings.setRandomizeMoveCategory(restoreState(data[25], 4));
         settings.setCorrectStaticMusic(restoreState(data[25], 5));
 
-        settings.setEvolutionsMod(restoreEnum(EvolutionsMod.class, data[26], 0, // UNCHANGED
-                1, // RANDOM
-                7 // RANDOM_EVERY_LEVEL
-        ));
+        int evolutionsModBits = ((data[26] & 0b10000000) >>> 5) | (data[26] & 0b10) | (data[26] & 0b1);
+        EvolutionsMod evolutionsMod;
+        switch (evolutionsModBits) {
+            case 0b001: evolutionsMod = EvolutionsMod.UNCHANGED; break;
+            case 0b010: evolutionsMod = EvolutionsMod.RANDOM; break;
+            case 0b100: evolutionsMod = EvolutionsMod.RANDOM_EVERY_LEVEL; break;
+            default: evolutionsMod = EvolutionsMod.STONE_EVO_ONLY; break;
+        }
+        settings.setEvolutionsMod(evolutionsMod);
         settings.setEvosSimilarStrength(restoreState(data[26], 2));
         settings.setEvosSameTyping(restoreState(data[26], 3));
         settings.setEvosMaxThreeStages(restoreState(data[26], 4));
