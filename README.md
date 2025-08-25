@@ -6,7 +6,7 @@ Based on the Universal Pokemon Randomizer by Dabomstew
 
 # Info
 
-This fork was made to solely implement an idea for a moon stone only evo mode. It will only work with FireRed/LeafGreen, no other games are currently supported. Comrade_dik_dik did 99.99% of the work for this fork.
+This fork was made to solely implement an idea for a moon stone only evo mode. It will only work with FireRed/LeafGreen, no other games are currently supported. Comrade_dik_dik did 99.99% of the work for this fork. If anything isn't quite correct with credits or links that's my bad, I tried my best.
 
 Have a look at the [release page](https://github.com/Alanim/universal-pokemon-randomizer-zx-with-stone-evos/releases) for changelogs and downloads.
 
@@ -33,4 +33,5 @@ If you encounter something that seems to be a bug, submit an issue using the `Bu
 # Other problems
 
 If you have problems using the randomizer, it could be because of some problem with Java or your operating system. **If you have problems with starting the randomizer specifically, [read this page first before creating an issue.](https://github.com/Alanim/universal-pokemon-randomizer-zx-with-stone-evos/wiki/About-Java)** If that page does not solve your problem, submit an issue using the `Need Help` issue template.
+
 
